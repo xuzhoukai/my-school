@@ -2,6 +2,8 @@ package com.omen.myschool.mapper;
 
 import com.omen.myschool.entity.Student;
 
+import java.util.List;
+
 public interface StudentMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,6 @@ public interface StudentMapper {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
+
+    int insertStudentBatch(List<Student> list);
 }

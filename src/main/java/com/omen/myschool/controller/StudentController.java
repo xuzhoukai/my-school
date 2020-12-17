@@ -29,4 +29,10 @@ public class StudentController {
         int result = studentService.insertStudent(student);
         return result+"";
     }
+
+    @GetMapping("/addListStudent")
+    public String addStudentList(){
+        int result = studentService.insertStudentBatch();
+        return result+"";
+    }
 }

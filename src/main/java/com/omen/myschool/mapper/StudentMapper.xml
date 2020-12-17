@@ -90,4 +90,23 @@
       grade = #{grade,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <!-- 批量插入生成的兑换码 -->
+  <insert id ="insertStudentBatch" parameterType="java.util.List" >
+    <selectKey resultType ="java.lang.Long" keyProperty= "id"
+               order= "AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey >
+    insert into student
+    (id,name, age,sex, grade)
+    values
+    <foreach collection ="list" item="student" index= "index" separator =",">
+      (
+      #{student.id},
+      #{student.name},
+      #{student.age},
+      #{student.sex},
+      #{student.grade}
+      )
+    </foreach >
+  </insert >
 </mapper>
