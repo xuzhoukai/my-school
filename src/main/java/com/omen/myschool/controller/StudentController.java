@@ -8,11 +8,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+
 @RestController
 public class StudentController {
 
     @Autowired
     StudentService studentService;
+
+    @PostConstruct
+    public void start(){
+        System.out.println("StudentController start");
+    }
 
     @GetMapping("/student")
     public String getStudent(@RequestParam int id){
