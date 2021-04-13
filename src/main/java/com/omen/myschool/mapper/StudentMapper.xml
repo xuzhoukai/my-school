@@ -21,7 +21,7 @@
     delete from student
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.omen.myschool.entity.Student" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+  <insert id="insert" parameterType="com.omen.myschool.entity.Student" useGeneratedKeys="true" keyProperty="id" >
     insert into student (id,name, age,
       sex, grade)
     values (#{id,jdbcType=BIGINT},#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
